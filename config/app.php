@@ -166,6 +166,8 @@ return [
          * Package Service Providers...
          */
 
+
+
         /*
          * Application Service Providers...
          */
@@ -226,6 +228,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        
     ],
 
 ];
