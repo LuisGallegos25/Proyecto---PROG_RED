@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Product;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
@@ -14,9 +13,9 @@ class ProductsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    { 
-        $products = Product::all();
-        return view("products.index",["products" => $products]);
+    {
+        $datos = Product::all();
+        return view ('products.index',compact('datos'));
     }
 
     /**
@@ -26,7 +25,7 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view("products.create");
+       return view('products.create');
     }
 
     /**
@@ -37,62 +36,79 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        $product = new Product;
-        $product->title = $request->title;
-        $product->description = $request->description;
-        $product->pricing = $request->pricing;
-        $product->user_id = Auth::user()->id;
-
-        if($product->save()){
-            return redirect("/products");
-        }else{
-            return view("products.create");
-        }
+        $request->validate([
+            'title'=>'required',
+            'pricing'=>'required',
+            'description'=>'required'
+        ]);
         
+        $datos = new Product();
+            $datos->title = $request->title;
+            $datos->pricing = $request->pricing;
+            $datos->description = $request->description;
+           
+        $datos->save();
+        $datos=Product::all();
+        return view('products.index', compact('datos'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+        $product = Product::find($id);
+        return view('products.show',['product' => $product]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        //
+        return view('products.edit',compact('products'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        $request->validate([
+            'title'=>'required',
+            'pricing'=>'required',
+            'description'=>'required'
+        ]);
+            $product->title = $request->title;
+            $product->pricing = $request->pricing;
+            $product->description = $request->description;
+            
+        $product->save();
+        $datos=Product::all();
+        return view('products.index', compact('datos'));
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        $datos=Product::all();
+        return view('Products.index', compact('datos'));
+        
     }
 }

@@ -18,21 +18,22 @@
            </ul> 
          </div><br />
        @endif
-       <form method="post" action="{{ route('products.store') }}">
+       <form method="post" action="{{ route('products.update',$product->id) }}">
         @csrf
+        @method('PUT')
         <div class="form-group">    
             <label for="title">Titulo:</label>
-            <input type="text" class="form-control" name="title"/>
+            <input type="text" class="form-control" name="title" value="{{$product->title}}"/>
         </div>
     
         <div class="form-group">
             <label for="pricing">Precio de tu producto en centavos de dolar:</label>
-            <input type="number" class="form-control" name="pricing"/>
+            <input type="number" class="form-control" name="pricing" value="{{$product->pricing}}"/>
         </div>
     
         <div class="form-group">    
            <label for="description">Descripcion del producto:</label>
-           <input type="text" class="form-control" name="description"/>
+           <input type="text" class="form-control" name="description" value="{{$product->description}}"/>
        </div>
                                
        <div class="form-group text-right">

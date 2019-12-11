@@ -16,13 +16,24 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($products as $product)
+            @foreach ($datos as $product)
                 <tr>
                     <td>{{ $product->id }}</td>
                     <td>{{ $product->title }}</td>
                     <td>{{ $product->description }}</td>
                     <td>{{ $product->pricing }}</td>
-                    <td> Acciones </td>
+                <td>  
+                <form action="{{ route('products.destroy', $product->id)}}" method="post">
+                    @csrf
+                    @method('DELETE')
+                    <button class="btn btn-danger" type="submit">Borrar</button>
+                    <a href="{{ route('products.create')}}" class="btn btn-primary">Nuevo</a>
+                    <a href="{{ route('products.edit',$product->id)}}" class="btn btn-primary" >Editar</a></td>
+            
+                    
+                    </form>
+                
+               
                 </tr>
             @endforeach
         </tbody>  
