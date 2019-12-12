@@ -18,7 +18,7 @@
           </ul> 
         </div><br />
       @endif
-         <form method="post" action="{{ route('messages.store') }}">  
+         <form method="post" action="{{ route('solicitud.store') }}">  
              @csrf
              <div class="form-group">    
                  <label>Nombres:</label>

@@ -28,6 +28,6 @@ class MessagesController extends Controller
      //sendGrid
      //Mail::to('albertogallego356@gmail.com')->queue(new MessageReceived($msg));
      //return new MessageReceived($msg);
-     return redirect('home')->with('toast_success','Su solicitud sera procesada.');
+     return redirect('home')->with('toast_success','Gracias por su comentario.');
     }
 }
