@@ -1,5 +1,7 @@
 <?php
 
+use RealRashid\SweetAlert\Facades\Alert;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,11 +14,21 @@
 */
 
 Route::get('/', function () {
+
     return view('welcome');
+
 });
+
+
 
 Auth::routes();
 
 Route::resource('/products','ProductsController');
+Route::resource('/messages','MessagesController');
 
+Route::view('/contact', 'contact')->name('contact');
+
+
+
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout' );
 Route::get('/home', 'HomeController@index')->name('home');

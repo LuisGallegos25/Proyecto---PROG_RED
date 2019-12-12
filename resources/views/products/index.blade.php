@@ -16,7 +16,9 @@
             </tr>
         </thead>
         <tbody>
+                <a href="{{ route('products.create')}}" class="btn btn-primary">Nuevo</a>
             @foreach ($datos as $product)
+            
                 <tr>
                     <td>{{ $product->id }}</td>
                     <td>{{ $product->title }}</td>
@@ -27,7 +29,7 @@
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger" type="submit">Borrar</button>
-                    <a href="{{ route('products.create')}}" class="btn btn-primary">Nuevo</a>
+                    
                     <a href="{{ route('products.edit',$product->id)}}" class="btn btn-primary" >Editar</a></td>
             
                     

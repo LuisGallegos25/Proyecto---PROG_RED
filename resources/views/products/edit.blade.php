@@ -34,7 +34,7 @@
         <div class="form-group">    
            <label for="description">Descripcion del producto:</label>
            <input type="text" class="form-control" name="description" value="{{$product->description}}"/>
-       </div>
+       </div> 
                                
        <div class="form-group text-right">
            <a href="{{url('/products')}}">Regresar al listado de productos</a>
@@ -45,5 +45,6 @@
      </div>
    </div>
    </div>
+   
     
 @endsection

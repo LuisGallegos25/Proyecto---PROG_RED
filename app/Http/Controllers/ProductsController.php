@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProductsController extends Controller
 {
@@ -36,20 +37,33 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
+        if($request->hasfile('foto')){
+            $file = $request->file('foto');
+            $name = time().$file->getClientOriginalName();
+            $file->move(public_path().'/images/',$name);
+            
+        }
+        
         $request->validate([
             'title'=>'required',
             'pricing'=>'required',
-            'description'=>'required'
+            'description'=>'required',
+            //'foto'=>'required'
         ]);
+
+        
         
         $datos = new Product();
             $datos->title = $request->title;
             $datos->pricing = $request->pricing;
-            $datos->description = $request->description;
-           
+            $datos->description = $request->description; 
+            $datos->foto = $name;
+
         $datos->save();
         $datos=Product::all();
-        return view('products.index', compact('datos'));
+        
+        //return view('products.index', compact('datos'));
+        return redirect('/products')->with('toast_success','Nuevo Articulo Agregado');
     }
 
     /**
@@ -72,7 +86,7 @@ class ProductsController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('products.edit',compact('products'));
+        return view('products.edit',compact('product'));
     }
 
     /**
@@ -95,7 +109,8 @@ class ProductsController extends Controller
             
         $product->save();
         $datos=Product::all();
-        return view('products.index', compact('datos'));
+        //return view('products.index', compact('datos'));
+        return redirect('/products')->with('toast_success','Producto Editado');
     }
 
     /**
@@ -108,7 +123,8 @@ class ProductsController extends Controller
     {
         $product->delete();
         $datos=Product::all();
-        return view('Products.index', compact('datos'));
+        //return view('products.index', compact('datos'));
+        return redirect('/products')->with('toast_success','Producto Eliminado');
         
     }
 }
