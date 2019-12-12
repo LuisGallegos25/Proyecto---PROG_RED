@@ -9,10 +9,16 @@
     <div class="col-sm-8 offset-sm-2">
        <h1 class="display-3">Formulario de Solicitud</h1>
      <div>
-       @if ($errors->any())
-         
-       @endif
-         <form method="post" action="{{ route('messages.store') }}">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+              @endforeach
+          </ul> 
+        </div><br />
+      @endif
+         <form method="post" action="{{ route('messages.store') }}">  
              @csrf
              <div class="form-group">    
                  <label>Nombres:</label>
@@ -32,9 +38,7 @@
                  <label >Direccion:</label>
                  <input type="text" class="form-control" name="content"/>
              </div>                                      
-             <button type="submit" class="btn btn-primary">Enviar</button>
-
-             <div class="green">
+             <input type="submit" value="Enviar" class="btn btn-success">
                     
                 </div>
 

@@ -26,10 +26,18 @@ Auth::routes();
 Route::resource('/products','ProductsController');
 Route::resource('/messages','MessagesController');
 
+Route::resource('/solicitud','SolicitudController');
+
 Route::view('/contact', 'contact')->name('contact');
 Route::view('/animation', 'animation')->name('animation');
 
 Route::get('/producto', 'Controller@index')->name('producto');
+
+Route::get('login/github', 'Auth\LoginController@redirectToProvider');
+Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');
+
+Route::get('/redirect/{provider}','SocialController@redirect');
+Route::get('/callback/{provider}','SocialController@callback');
 
 
 
