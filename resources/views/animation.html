@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WEB ANIMATION API</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/material-fullpalette.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/ripples.min.css">
+
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+<style>body, html {
+    height: 100%;
+    background-image: url("");
+    background-repeat:no-repeat ;
+  }
+  
+  .container-thing {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+  
+  %circle {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    font-size: 4em;
+    border-radius: 50%;
+    margin-right: 50px;
+    
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+  
+  .green {
+    @extend %circle;
+    background: #81C784;
+    font-size: 100px;
+    border-radius:40%;
+  }
+  
+  .blue {
+    @extend %circle;
+    background: #64B5F6;
+    font-size: 100px;
+    border-radius:40%;
+  }
+  
+  .yellow {
+    @extend %circle;
+    background: #FFB74D;
+    font-size: 100px;
+    border-radius:40%;
+    
+  }</style>
+
+
+</head>
+<body>
+  <center><div class="card"><a class="btn btn-primary" >Lo esperamos tan pronto como termine su caceria. XD</a></div></center>
+  
+    <div class="container-thing">
+        <div class="green">Gracias</div>
+        <div class="blue">Compra</div>
+        <div class="yellow">Por su</div>
+      </div>
+      
+
+      <script>var green = document.querySelector('.green');
+
+        var animation = green.animate([
+          { transform: 'translateY(-2em)' },
+          { transform: 'translateY(2em)' }
+        ], {
+          duration: 1000,
+          iterations: Infinity,
+          direction: 'alternate',
+          easing: 'ease-in-out'
+        });
+        
+        var blue = document.querySelector('.blue');
+        
+        blue.animate([
+          { transform: 'translateY(-2em)', opacity: 0 },
+          { transform: 'translateY(2em)', opacity: 1}
+        ], {
+          duration: 1000,
+          iterations: Infinity,
+          direction: 'alternate',
+          easing: 'ease',
+          delay: 500
+        });
+        
+        var yellow = document.querySelector('.yellow');
+        
+        yellow.animate([
+          { transform: 'translateX(-2em) scale(1)' },
+          { transform: 'translateX(2em) scale(1.5)' }
+        ], {
+          duration: 1000,
+          direction: 'alternate',
+          iterations: Infinity,
+          easing: 'ease-in-out',
+          delay: 500
+        })</script>
+</body>
+</html>

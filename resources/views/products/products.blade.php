@@ -5,15 +5,7 @@
         <div class="card product text-left">
             @if(Auth::check() && $product->user_id == Auth::user()->id)
             
-            <center><div class="absolute actions">
-                    <form action="{{ route('products.destroy', $product->id)}}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn" type="submit">Borrar</button>
-                            <a href="{{ route('products.create')}}" class="btn">Nuevo</a>
-                            <a href="{{ route('products.edit',$product->id)}}" class="btn" >Editar</a></td>
-                    
-            </div></center>
+            
 
             @endif
         

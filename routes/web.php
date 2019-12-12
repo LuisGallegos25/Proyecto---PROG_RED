@@ -27,8 +27,13 @@ Route::resource('/products','ProductsController');
 Route::resource('/messages','MessagesController');
 
 Route::view('/contact', 'contact')->name('contact');
+Route::view('/animation', 'animation')->name('animation');
+
+Route::get('/producto', 'Controller@index')->name('producto');
 
 
 
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout' );
 Route::get('/home', 'HomeController@index')->name('home');
+
+

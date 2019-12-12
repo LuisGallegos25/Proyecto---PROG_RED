@@ -63,7 +63,7 @@ class ProductsController extends Controller
         $datos=Product::all();
         
         //return view('products.index', compact('datos'));
-        return redirect('/products')->with('toast_success','Nuevo Articulo Agregado');
+        return redirect('/products')->with('toast_success','Producto Agregado');
     }
 
     /**
