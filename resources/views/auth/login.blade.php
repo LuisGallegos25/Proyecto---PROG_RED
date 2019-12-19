@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Ingresar') }}</div>
 
-                <div class="card-body">
+                <div class="card-body table-dark">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
@@ -15,7 +15,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Correo Electronico') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" type="email" class="form-control text-light @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -29,7 +29,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Contraseña') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <input id="password" type="password" class="form-control text-light @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -53,12 +53,12 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-warning">
                                     {{ __('Ingresar') }}
                                 </button>
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Registrar') }}</a>
                                 @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    <a class="btn btn-link text-light" href="{{ route('password.request') }}">
                                         {{ __('Olvide mi contraseña') }}
                                     </a>
                                 
@@ -67,13 +67,13 @@
                             </div>
                         </div>
                         
-                        <div class="panel-footer">
+                        
                             <center>
-                            <a class="btn btn-primary"  href="redirect/facebook">Facebook</a>
-                            <a class="btn btn-primary" style="background:red" href="redirect/google">Google</a>
-                            <a class="btn btn-primary" style="background:gray" href="redirect/github">Github</a>
+                            <a class="btn btn-warning"  href="redirect/facebook">Facebook</a>
+                            <a class="btn btn-warning"  href="redirect/google">Google</a>
+                            <a class="btn btn-warning" style="background:gray" href="redirect/github">Github</a>
                             </center>
-                        </div>
+                        
 
                     </form>
                 </div>

@@ -60,7 +60,7 @@
             }
 
             .links > a {
-                color:  #d6dbdf ;
+                color:  White ;
                 padding: 0 25px;
                 font-size:20px;
                 font-weight: 600;
@@ -73,14 +73,14 @@
             .m-b-md {
                 margin-bottom: 30px;
                 font-size: 200px;
-                color:  black ;
+                color:  white ;
                 font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             }
 
             .m-b-mdd {
                 margin-bottom: 30px;
                 font-size: 50px;
-                color:  #d6dbdf ;
+                color:  white ;
                 font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             }
         </style>
@@ -100,14 +100,14 @@
 
             <div class="content">
                     <div class="title m-b-md">
-                            Arms Store
+                        All weapons
                     </div>
                     <div class="title m-b-mdd">
                         <a >Armas y Equipamiento Militar</a> 
                     </div>
-                    <a href="{{ route('producto') }}" class="btn btn-primary" >Ingresar</a><br>
+                    <a href="{{ route('producto') }}" class="btn btn-warning" >Ingresar</a><br>
 
-                    <a href="{{ route('animation') }}" class="btn btn-primary" >Salir</a>
+                    <a href="{{ route('animation') }}" class="btn btn-warning" >Salir</a>
                     
                     
                     

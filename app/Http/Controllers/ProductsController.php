@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Proveedor;
+use App\Categoria;
+
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -26,7 +29,9 @@ class ProductsController extends Controller
      */
     public function create()
     {
-       return view('products.create');
+        $proveedores = Proveedor::all();
+        $categoria = Categoria::all();
+        return view('products.create', compact('proveedores'), compact('categoria'));
     }
 
     /**
@@ -37,6 +42,7 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
+        //return $request;
         if($request->hasfile('foto')){
             $file = $request->file('foto');
             $name = time().$file->getClientOriginalName();
@@ -58,7 +64,8 @@ class ProductsController extends Controller
             $datos->pricing = $request->pricing;
             $datos->description = $request->description; 
             $datos->foto = $name;
-
+            $datos->proveedor_id = $request->proveedor;
+            $datos->categoria_id = $request->categoria;
         $datos->save();
         $datos=Product::all();
         

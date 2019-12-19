@@ -22,8 +22,10 @@ Route::get('/', function () {
 
 
 Auth::routes();
-
+Route::resource('/categoria','CategoriaController');
+Route::resource('/proveedor','ProveedorController');
 Route::resource('/products','ProductsController');
+Route::resource('/defensa','DefensaController');
 Route::resource('/messages','MessagesController');
 
 Route::resource('/solicitud','SolicitudController');

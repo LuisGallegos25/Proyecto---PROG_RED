@@ -9,14 +9,17 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
-        "fideloper/proxy": "^4.0",
-        "laravel/framework": "^6.0",
+        "brackets/craftable": "^5.0",
+        "fideloper/proxy": "^6.0",
+        "laravel/framework": "^4.0",
         "laravel/socialite": "^4.3",
         "laravel/tinker": "^1.0",
         "realrashid/sweet-alert": "^3.0",
         "s-ichikawa/laravel-sendgrid-driver": "^2.1"
     },
     "require-dev": {
+        "brackets/admin-generator": "^5.0",
+        "crestapps/laravel-code-generator": "^2.4",
         "facade/ignition": "^1.4",
         "fzaninotto/faker": "^1.4",
         "mockery/mockery": "^1.0",

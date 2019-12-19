@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.ap')
 @section('content')
 @foreach ($products as $product)
-<div class="container text-center">
-        <div class="card product text-left">
+<div class="container text-center text-light">
+        <div class="card product text-left table-dark">
             @if(Auth::check() && $product->user_id == Auth::user()->id)
             
             
@@ -10,23 +10,32 @@
             @endif
         
         <center>
-                <h1>{{$product->title}}</h1>
-            <div class="row-center">
+                <h1 class="table-dark">{{$product->title}}</h1>
+            <div class="row-center table-dark">
                 
-                <div class="col-sm-1 col-xs-12"  style="height:30%">
+                <div class="col-sm-1 col-xs-12 table-dark"  style="height:30%">
                         
                 </div>
-                <div class="col-sm-4 col-xs-12" >
-                        <img class="card-img-top" src="images/{{$product->foto}}" alt="">
-                    <p>
+                <div class="col-sm-4 col-xs-12 table-dark" >
+                        <img class="card-img-top table-dark" src="images/{{$product->foto}}" alt="">
+                    <p class="table-dark">
                         
                         <strong>Descripcion</strong>
                     </p>
-                    <p>
+                    <p class="table-dark">
                         {{$product->description}}
                     </p>
-                    <p>
-                    <a href="{{ route('contact') }}" class="btn btn-success">Solicitar</a>
+
+                    <p class="table-dark">
+                        
+                        <strong>Precio</strong>
+                    </p>
+                    <p class="table-dark">
+                        {{$product->pricing}}
+                    </p>
+
+                    <p class="table-dark">
+                        <a href="{{ route('defensa.create')}}" class="btn btn-warning">Solicitar</a>
                     </p>
                 </div>
             </div>
@@ -38,12 +47,12 @@
 @endforeach    
 
 <!-- Main Footer -->
-<center><footer class="main-footer">
+<center><footer class="main-footer ">
     <!-- To the right -->
     
 
     <div class="container text-center">
-        <div class="card product text-left">
+        <div class="card product text-left table-dark">
             
         
         <center>
@@ -81,7 +90,7 @@
                                  <label >Comentario:</label>
                                  <textarea name="content" rows="10" cols="80">Escribe aquí tus comentarios</textarea>
                              </div>                                      
-                             <input type="submit" value="Enviar" class="btn btn-success">
+                             <input type="submit" value="Enviar" class="btn btn-warning">
                                     
                                 </div>
                 
