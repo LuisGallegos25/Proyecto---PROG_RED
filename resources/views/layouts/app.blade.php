@@ -306,6 +306,8 @@
 				<li><a  href="{{url('/defensa')}}">Solicitudes</a></li>
 				<li><a  href="{{url('/categoria')}}">Categorias</a></li>
 				<li><a  href="{{url('/proveedor')}}">Proveedores</a></li>
+				<li><a  href="{{url('/promocion')}}">Promociones</a></li>
+				<li><a  href="{{url('producto')}}">Store</a></li>
 				<li><a target="_blank" href="">Contacto</a></li>
 		</ul>
 </nav>

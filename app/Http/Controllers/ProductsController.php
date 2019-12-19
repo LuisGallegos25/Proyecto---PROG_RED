@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\Proveedor;
 use App\Categoria;
+use App\Promocion;
 
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -31,7 +32,8 @@ class ProductsController extends Controller
     {
         $proveedores = Proveedor::all();
         $categoria = Categoria::all();
-        return view('products.create', compact('proveedores'), compact('categoria'));
+        $promocion = Promocion::all();
+        return view('products.create', compact('proveedores','promocion','categoria'));
     }
 
     /**
@@ -66,6 +68,7 @@ class ProductsController extends Controller
             $datos->foto = $name;
             $datos->proveedor_id = $request->proveedor;
             $datos->categoria_id = $request->categoria;
+            $datos->promocion_id = $request->promocion;
         $datos->save();
         $datos=Product::all();
         

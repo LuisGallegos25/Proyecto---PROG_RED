@@ -9,9 +9,10 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "beyondcode/laravel-websockets": "^1.3",
         "brackets/craftable": "^5.0",
-        "fideloper/proxy": "^6.0",
-        "laravel/framework": "^4.0",
+        "fideloper/proxy": "^4.0",
+        "laravel/framework": "^6.0",
         "laravel/socialite": "^4.3",
         "laravel/tinker": "^1.0",
         "realrashid/sweet-alert": "^3.0",

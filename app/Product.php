@@ -15,4 +15,10 @@ class Product extends Model
     {
         return $this->belongsTo('App\Categoria', 'categoria_id');
     }
+
+    public function promocion()
+    {
+        return $this->belongsTo('App\Promocion', 'promocion_id');
+    }
+
 }

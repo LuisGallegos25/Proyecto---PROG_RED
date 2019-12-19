@@ -7,7 +7,7 @@
           <button class="btn btn-sm btn-outline-secondary text-light" type="button"><a class="text-light" href="{{ url('/defensa') }}">Solicitudes</a></button>
           <button class="btn btn-outline-success text-light" type="button"><a class="text-light" href="{{ url('/categoria') }}"> Categorias</a></button>
           <button class="btn btn-sm btn-outline-secondary text-light" type="button"><a class="text-light" href="{{ url('/proveedor') }}"> Proveedores</a></button>
-        
+          <button class="btn btn-sm btn-outline-secondary text-light" type="button"><a class="text-light" href="{{ url('/promocion') }}"> Promociones</a></button>
         
         
       
@@ -31,13 +31,14 @@
                     
                     <td>{{ $categoria->title }}</td>
                     <td>{{ $categoria->description }}</td>
+                    
                 <td>  
                 <form action="{{ route('categoria.destroy', $categoria->id)}}" method="post">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger" type="submit">Borrar</button>
                     
-                    <a href="{{ route('categoria.edit',$categoria->id)}}" class="btn btn-warning" >Editar</a></td>
+                    <a href="/categoria/{{$categoria->id}}/edit" class="btn btn-warning" >Editar</a></td>
             
                     
                     </form>

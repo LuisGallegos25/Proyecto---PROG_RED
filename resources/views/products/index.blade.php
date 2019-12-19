@@ -7,7 +7,7 @@
           <button class="btn btn-sm btn-outline-secondary text-light" type="button"><a class="text-light" href="{{ url('/defensa') }}">Solicitudes</a></button>
           <button class="btn btn-sm btn-outline-secondary text-light" type="button"><a class="text-light" href="{{ url('/categoria') }}"> Categorias</a></button>
           <button class="btn btn-sm btn-outline-secondary text-light" type="button"><a class="text-light" href="{{ url('/proveedor') }}"> Proveedores</a></button>
-        
+          <button class="btn btn-sm btn-outline-secondary text-light" type="button"><a class="text-light" href="{{ url('/promocion') }}"> Promociones</a></button>
         
         
       
@@ -22,7 +22,7 @@
                 <td>Descripcion</td>
                 <td>Precio</td>
                 <td>Proveedor</td>
-                <td>Categoria</td>
+               
                 <td>Acciones</td>
             </tr>
         </thead>
@@ -36,7 +36,7 @@
                     <td>{{ $product->description }}</td>
                     <td>{{ $product->pricing }}</td>
                     <td>{{ $product->proveedor->name }}</td>
-                    <td>{{ $product->categoria->title }}</td>
+                    
                 <td>  
                 <form action="{{ route('products.destroy', $product->id)}}" method="post">
                     @csrf

@@ -13,14 +13,14 @@
                 <h1 class="table-dark">{{$product->title}}</h1>
             <div class="row-center table-dark">
                 
-                <div class="col-sm-1 col-xs-12 table-dark"  style="height:30%">
+                <div class="col-sm-1  col-xs-12 table-dark"  style="height:30%">
                         
                 </div>
                 <div class="col-sm-4 col-xs-12 table-dark" >
                         <img class="card-img-top table-dark" src="images/{{$product->foto}}" alt="">
                     <p class="table-dark">
                         
-                        <strong>Descripcion</strong>
+                        <h4><strong>Categoria:&nbsp; {{ $product->categoria->title }}</strong></h4>
                     </p>
                     <p class="table-dark">
                         {{$product->description}}
@@ -31,8 +31,13 @@
                         <strong>Precio</strong>
                     </p>
                     <p class="table-dark">
-                        {{$product->pricing}}
+                        <h2>{{$product->pricing}} u$d</h2>&nbsp;&nbsp;<h6>{{ $product->promocion->porcentaje }} descuento</h6></td>
                     </p>
+
+                    
+                       
+                    
+
 
                     <p class="table-dark">
                         <a href="{{ route('defensa.create')}}" class="btn btn-warning">Solicitar</a>

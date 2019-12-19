@@ -5,10 +5,11 @@
     <button class="btn btn-sm btn-outline-secondary text-light" type="button"><a class="text-light" href="{{ url('/products') }}">Productos</a> </button>
     <button class="btn btn-sm btn-outline-secondary text-light" type="button"><a class="text-light" href="{{ url('/defensa') }}">Solicitudes</a></button>
     <button class="btn btn-sm btn-outline-secondary text-light" type="button"><a class="text-light" href="{{ url('/categoria') }}"> Categorias</a></button>
-    <button class="btn btn-outline-success text-light" type="button"><a class="text-light" href="{{ url('/proveedor') }}"> Proveedores</a></button>
-    <button class="btn btn-sm btn-outline-secondary text-light" type="button"><a class="text-light" href="{{ url('/promocion') }}">Promociones</a></button>
+    <button class="btn btn-sm btn-outline-secondary text-light" type="button"><a class="text-light" href="{{ url('/proveedor') }}"> Proveedores</a></button>
+    <button class="btn btn-outline-success text-light" type="button"><a class="text-light" href="{{ url('/promocion') }}">Promociones</a></button>
+           
       
-<h1>Proveedores</h1>
+<h1>Promociones</h1>
 </div>
 <div class="container">
     <table class="table table-dark text-light ">
@@ -16,31 +17,27 @@
             <tr>
               
                 <td>Nommbre</td>
-                <td>Correo Electronico</td>
-                <td>Direccion</td>
-                <td>Telefono</td>
-                <td>NIT</td>
+                <td>Porcentaje</td>
+                <td>Acciones</td>
             </tr>
         </thead>
         <tbody>
-                <a href="{{ route('proveedor.create')}}" class="btn btn-warning">Nuevo</a>
-            @foreach ($datos as $proveedor)
+                <a href="{{ route('promocion.create')}}" class="btn btn-warning">Nuevo</a>
+            @foreach ($datos as $promocion)
             
                 <tr>
                     
-                    <td>{{ $proveedor->name }}</td>
-                    <td>{{ $proveedor->email }}</td>
-                    <td>{{ $proveedor->direccion }}</td>
-                    <td>{{ $proveedor->telefono }}</td>
-                    <td>{{ $proveedor->nit }}</td>
+                    <td>{{ $promocion->nombre }}</td>
+                    <td>{{ $promocion->porcentaje }}</td>
+                   
                     
                 <td>  
-                <form action="{{ route('proveedor.destroy', $proveedor->id)}}" method="post">
+                <form action="{{ route('promocion.destroy', $promocion->id)}}" method="post">
                     @csrf
                     @method('DELETE')
                     <button class="btn btn-danger" type="submit">Borrar</button>
                     
-                    <a href="{{ route('proveedor.edit',$proveedor->id)}}" class="btn btn-warning" >Editar</a></td>
+                    <a href="{{ route('promocion.edit',$promocion->id)}}" class="btn btn-warning" >Editar</a></td>
             
                     
                     </form>

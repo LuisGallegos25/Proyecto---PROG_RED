@@ -57,6 +57,16 @@
           @endforeach
         </select>
       </div>
+      
+      <div class="form-group">
+        <label for="">Seleccione una categoria : </label>
+        <select name="promocion" class="custom-select">          
+          @foreach ($promocion as $item)
+              <option value="{{ $item->id }}">{{ $item->nombre }}</option>
+          @endforeach
+        </select>
+      </div>
+      
                                
        <div class="form-group text-right">
            <a href="{{url('/products')}}">Regresar al listado de productos</a>

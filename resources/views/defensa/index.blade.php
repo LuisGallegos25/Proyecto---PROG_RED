@@ -7,7 +7,7 @@
           <button class="btn btn-outline-success text-light" type="button"><a class="text-light" href="{{ url('/defensa') }}">Solucitudes</a></button>
           <button class="btn btn-sm btn-outline-secondary text-light" type="button"><a class="text-light" href="{{ url('/categoria') }}"> Categorias</a></button>
           <button class="btn btn-sm btn-outline-secondary text-light" type="button"><a class="text-light" href="{{ url('/proveedor') }}"> Proveedores</a></button>
-        
+          <button class="btn btn-sm btn-outline-secondary text-light" type="button"><a class="text-light" href="{{ url('/promocion') }}"> Promociones</a></button>
         
         
       

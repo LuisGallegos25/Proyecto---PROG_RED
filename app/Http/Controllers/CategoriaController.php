@@ -39,7 +39,6 @@ class CategoriaController extends Controller
      */
     public function store(Request $request)
     {
-        //return $request;
         
         
         $request->validate([
@@ -53,7 +52,7 @@ class CategoriaController extends Controller
         $datos = new Categoria();
             $datos->title = $request->title;
             $datos->description = $request->description; 
-            $datos->save();
+        $datos->save();
         $datos=Categoria::all();
         
         //return view('products.index', compact('datos'));
@@ -63,13 +62,12 @@ class CategoriaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Categoria  $product
+     * @param  \App\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        $product = Categoria::find($id);
-        return view('cateoria.show',['categoria' => $categoria]);
+      
     }
 
     /**
@@ -78,9 +76,13 @@ class CategoriaController extends Controller
      * @param  \App\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function edit(Categoria $categoria)
+    public function edit($id)
     {
-        return view('categoria.edit',compact('categoria'));
+        $datos=Categoria::find($id) ;
+        
+        //return view('categoria.edit',compact('id'));
+        return view('categoria.edit', compact('datos'));
+       
     }
 
     /**
@@ -90,16 +92,14 @@ class CategoriaController extends Controller
      * @param  \App\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categoria $categoria)
+    public function update(Request $request, $id)
     {
-        $request->validate([
-            'title'=>'required',
-            'description'=>'required'
-        ]);
-            $categoria->title = $request->title;
-            $categoria->description = $request->description;
+            $datos=Categoria::find($id);
+
+            $datos->title = $request->title;
+            $datos->description = $request->description;
             
-        $categoria->save();
+        $datos->save();
         $datos=Categoria::all();
         //return view('products.index', compact('datos'));
         return redirect('/categoria')->with('toast_success','Categoria Editada');
@@ -111,12 +111,13 @@ class CategoriaController extends Controller
      * @param  \App\Categoria  $categoria
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Categoria $categoria)
+    public function destroy($id)
     {
-        $categoria->delete();
+        $datos=Categoria::find($id);
+        $datos->delete();
         $datos=Categoria::all();
         //return view('products.index', compact('datos'));
-        return redirect('/categoria')->with('toast_success','Categoria Eliminada');
+        return redirect('/categoria')->with('toast_success','Categoria Eliminado');
         
     }
 }

@@ -44,15 +44,16 @@ class DefensaController extends Controller
         $datos = new defensa();
             $datos->nombres = $request->nombres;
             $datos->correo = $request->correo;
-            $datos->identificacion = $request->identifiacion; 
+            $datos->identificacion = $request->identificacion; 
             $datos->direccion = $request->direccion;
+            $datos->estado = 'En espera';
             
 
         $datos->save();
         $datos=Defensa::all();
         
         //return view('products.index', compact('datos'));
-        return redirect('/defensa')->with('toast_success','Solicitud enviada');
+        return redirect('producto')->with('toast_success','Solicitud enviada');
     }
 
     /**
@@ -111,7 +112,7 @@ class DefensaController extends Controller
         $defensa->delete();
         $datos=Defensa::all();
         //return view('products.index', compact('datos'));
-        return redirect('/defensa')->with('toast_success','Producto Eliminado');
+        return redirect('/defensa')->with('toast_success','Solicitud dada de baja');
         
     }
 }

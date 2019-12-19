@@ -41,6 +41,7 @@
     </div> 
     <div class="form-group">    
       <label for="estado">Estado de solicitud:</label>
+      
       <input type="text" class="form-control text-light" name="estado" value="{{$defensa->estado}}"/>
   </div> 
                                

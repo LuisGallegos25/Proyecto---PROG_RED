@@ -23,6 +23,8 @@ class CreateProductsTable extends Migration
             $table->foreign('proveedor_id')->references('id')->on('proveedor');
             $table->unsignedBigInteger('categoria_id');            
             $table->foreign('categoria_id')->references('id')->on('categoria');
+            $table->unsignedBigInteger('promocion_id');            
+            $table->foreign('promocion_id')->references('id')->on('promocion');
             $table->timestamps();
         });
     }
